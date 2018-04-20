@@ -1,15 +1,24 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Address - Add</title>
     </head>
     <body>
-        <h1>Add New Address</h1>
-        <form action = "/address/insert" method = "get">
-            Street: <input name="street" type="text" />
-            Zip Code: <input name="zip_code" type="text" />
+        <!--<h1>Add New Address</h1>-->
+        <!--<form action = "/address/insert" method = "get">-->
+            <!--Street: <input name="street" type="text" />-->
+            <!--Zip Code: <input name="zip_code" type="text" />-->
              <br />
+            Address
+        <br/>
+        <% for(var i = 0; address_result.length > i; i++) {%>
+        <input type = "checkbox" name = "address_id" value = "<%=
+            address_result[i].address_id %>"> <%= address_result[i].street + ', '
+            + address_result[i].zip_code%>
+        <br/>
+        <% } %>
+        <br/>
         <input type="submit"/>
-        </form>
+        <!--</form>-->
     </body>
 </html>

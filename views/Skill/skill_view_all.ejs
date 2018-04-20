@@ -3,22 +3,29 @@
 <head>
     <title> Skill - View All</title>
 </head>
-<body>
-<h1>Skill</h1>
+    <body>
+        <h1>Skill</h1>
 
-<table boarder = "1">
-    <tr>
-        <th>ID</th>
-        <th>Skill</th>
-        <th>Description</th>
-    </tr>
-    <% for(var i = 0; i < skill.length; i++) {%>
-    <tr>
-        <td><%=skill[i].skill_id %></td>
-        <td><%=skill[i].skill_name %></td>
-        <td><%=skill[i].description %></td>
-    </tr>
-    <% } %>
-</table>
-</body>
+        <table border = "1">
+            <tr>
+                <th>Name</th>
+                <th>Skill</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            <% for(var i = 0; i < skill.length; i++) {%>
+            <tr>
+                <td><%= skill[i].skill_id %></td>
+                <td><%= skill[i].skill_name %></td>
+                <td><%= skill[i].description %></td>
+
+                <td>
+                    <a href="/skill/edit/?skill_id= <%=skill[i].skill_id %>">
+                       Edit
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
 </html>
