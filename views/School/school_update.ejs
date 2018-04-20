@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> School - Edit</title>
+</head>
+    <body>
+        <h1>Edit School</h1>
+        <br>
+        <form action = "/school/update" method = "get">
+            School Name: <input
+                id="school_name"
+                name="school_name"
+                type="text"
+                value="<%= school.school_name%>"/>
+            <input type = "hidden"
+                id=school_id"
+                name="school_id"
+                value="<%= school.school_id%>" />
+
+            <br>
+            <br>
+            <u>Address</u>
+            <br>
+            <% for(var i = 0; address_result.length > i; i++) {
+                var checked = "";
+                if(address_result[i].school_id != null) {
+                checked = "checked";
+                }
+            %>
+                <input type = "checkbox" name = "address_id" <%= checked%> value="<%= address_result[i].address_id%>">
+                    <%= address_result[i].street + ', ' + address_result[i].zip_code%>
+        <br/>
+
+            <% } %>
+            <br>
+            <input type="submit"/>
+
+        </form>
+        <br/>
+        <a href="/school/all">Return to all</a>
+    </body>
+</html>
