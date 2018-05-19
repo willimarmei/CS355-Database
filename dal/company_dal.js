@@ -25,7 +25,7 @@ exports.insert = function(params, callback) {
     var query = 'INSERT INTO company (company_name) VALUES (?)';
     var queryData = [params.company_name];
 
-    connection.query(query, queryData, function(err, result) {
+    connection.query(query, queryData, function(err, company_id) {
         if(err || params.address_id === undefined) {
             console.log(err);
             callback(err, result);
@@ -91,4 +91,13 @@ var companyAddressUpdate = function(company_id, addressIdArray, callback) {
             companyAddressInsert(company_id, addressIdArray, callback);
         }
     });
+};
+
+exports.delete = function (params, callback) {
+    var query = 'call company_delete(?)';
+    var queryData = [params.company_id];
+    connection.query(query, queryData, function (err, result) {
+        callback(err, result);
+    });
+
 };

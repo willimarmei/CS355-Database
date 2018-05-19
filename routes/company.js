@@ -31,13 +31,13 @@ router.get('/add', function(req, res) {
 });
 
 router.get('/insert', function(req, res) {
-    company_dal.insert(req.query, function(err, result) {
+    company_dal.insert(req.query, function(err, company_id) {
         if(err) {
             console.log(err);
             res.send(err);
         }
         else {
-            res.redirect(302, '/company/all');
+            res.redirect(302, '/company/edit?company_id=' + company_id);
         }
 
 
@@ -64,6 +64,18 @@ router.get('/update', function (req, res) {
             res.redirect(302, '/company/all');
         }
     });
+});
+
+router.get('/delete', function (req, res) {
+    company_dal.delete(req.query, function(err, result) {
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/company/all');
+        }
+    });
+
 });
 
 module.exports = router;

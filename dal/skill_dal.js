@@ -40,3 +40,11 @@ exports.update = function (params, callback) {
     });
 
 };
+
+exports.delete = function (params, callback) {
+    var query = 'call skill_delete(?)';
+    var queryData = [params.skill_id];
+    connection.query(query, queryData, function (err, result) {
+        callback(err, result);
+    });
+};

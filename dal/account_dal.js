@@ -39,5 +39,14 @@ exports.update = function (params, callback) {
     connection.query(query, queryData, function (err, result) {
         callback(err, result);
     });
+};
 
+exports.delete = function(params, callback) {
+    var query = 'delete from account where account_id = ?';
+    var queryData = [params.account_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+
+    });
 };

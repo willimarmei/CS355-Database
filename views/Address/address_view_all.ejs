@@ -11,6 +11,7 @@
                 <th>Street</th>
                 <th>Zip Code</th>
                 <th>Action</th>
+                <th>Delete</th>
             </tr>
             <% for(var i = 0; i < address.length; i++) {%>
             <tr>
@@ -19,6 +20,11 @@
                 <td>
                     <a href="/address/edit/?address_id= <%=address[i].address_id %>">
                         Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="/address/delete/?address_id= <%=address[i].address_id %>">
+                        Delete
                     </a>
                 </td>
             </tr>

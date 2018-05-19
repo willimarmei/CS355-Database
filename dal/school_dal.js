@@ -40,3 +40,12 @@ exports.update = function (params, callback) {
     });
 
 };
+
+exports.delete = function(params, callback) {
+    var query = 'call school_delete(?)';
+    var queryData = [params.school_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};

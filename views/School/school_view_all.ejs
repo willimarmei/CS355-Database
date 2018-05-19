@@ -11,6 +11,7 @@
                 <th>School Name</th>
                 <th>Address</th>
                 <th>Actions</th>
+                <th>Delete</th>
             </tr>
             <% for(var i = 0; school.length > i; i++) {%>
             <tr>
@@ -19,6 +20,11 @@
                 <td>
                     <a href = '/school/edit/?school_id=<%= school[i].school_id%>'>
                         Edit
+                    </a>
+                </td>
+                <td>
+                    <a href = '/school/delete/?school_id=<%= school[i].school_id%>'>
+                        Delete
                     </a>
                 </td>
             </tr>

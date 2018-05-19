@@ -64,4 +64,15 @@ router.get('/update', function (req, res) {
     });
 });
 
+router.get('/delete', function (req, res) {
+    skill_dal.delete(req.query, function(err, result) {
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/skill/all');
+        }
+    });
+});
+
 module.exports = router;

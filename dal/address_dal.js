@@ -13,6 +13,14 @@ exports.getAll = function(callback) {
     });
 };
 
+exports.accountGetAll = function(callback) {
+    var query = 'CALL resume_account_getall();';
+
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};
+
 exports.getinfo = function (address_id, callback) {
     var query = 'call address_getinfo(?)';
     var queryData = [address_id];
@@ -39,5 +47,15 @@ exports.update = function (params, callback) {
     connection.query(query, queryData, function (err, result) {
         callback(err, result);
     });
-
 };
+
+exports.delete = function(params, callback) {
+    var query = 'call address_delete(?)';
+    var queryData = [params.address_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+
+    });
+};
+
